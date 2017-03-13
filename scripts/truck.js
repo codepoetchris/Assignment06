@@ -1,3 +1,5 @@
+/*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+
 (function (window) {
     'use strict';
     var App = window.App || {};
