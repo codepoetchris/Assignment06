@@ -3,6 +3,7 @@
 (function (window) {
     'use strict';
     var FORM_SELECTOR = '[data-coffee-order="form"]';
+    var DEFAULT_CAFFEINE_LEVEL = 30;
     var App = window.App;
     var Truck = App.Truck;
     var DataStore = App.DataStore;
@@ -12,5 +13,17 @@
     var formHandler = new FormHandler(FORM_SELECTOR);
 
     formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
+    formHandler.addChangeHandler(
+        function () {
+            document.getElementById('caffeineRating').innerHTML =
+                document.getElementById('strengthLevel').value;
+        }
+    );
+    formHandler.addResetHandler(
+        function () {
+            document.getElementById('caffeineRating').innerHTML = DEFAULT_CAFFEINE_LEVEL;
+        }
+    );
+
     console.log(formHandler);
 })(window);

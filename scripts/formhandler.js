@@ -34,6 +34,21 @@
         });
     };
 
+    FormHandler.prototype.addChangeHandler = function (fn) {
+        console.log('Setting input box change handler for form');
+        this.$formElement.on('change', function (event) {
+            event.preventDefault();
+            fn();
+        });
+    };
+
+    FormHandler.prototype.addResetHandler = function (fn) {
+        console.log('Setting reset handler for form');
+        this.$formElement.on('reset', function () {
+            fn();
+        });
+    };
+
     App.FormHandler = FormHandler;
     window.App = App;
 
