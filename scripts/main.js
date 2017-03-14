@@ -15,13 +15,21 @@
     formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
     formHandler.addChangeHandler(
         function () {
-            document.getElementById('caffeineRating').innerHTML =
-                document.getElementById('strengthLevel').value;
+            var strength = document.getElementById('strengthLevel').value;
+            document.getElementById('caffeineRating').innerHTML = strength;
+            if (strength <= 30){
+                document.getElementById('caffeineRating').style.color = 'green';
+            }else if (strength >= 70){
+                document.getElementById('caffeineRating').style.color = 'red';
+            }else{
+                document.getElementById('caffeineRating').style.color = 'yellow';
+            }
         }
     );
     formHandler.addResetHandler(
         function () {
             document.getElementById('caffeineRating').innerHTML = DEFAULT_CAFFEINE_LEVEL;
+            document.getElementById('caffeineRating').style.color = 'green';
         }
     );
 
